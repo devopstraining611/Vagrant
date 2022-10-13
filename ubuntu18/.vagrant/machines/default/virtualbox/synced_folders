@@ -1,0 +1,1 @@
+{"virtualbox":{"/opt/data":{"guestpath":"/opt/data","hostpath":"C:/Users/mdwas/Desktop/Visualpath/somescripts","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/mdwas/Desktop/Visualpath/Vagrant/ubuntu18","disabled":false,"__vagrantfile":true}}}
