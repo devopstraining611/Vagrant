@@ -1,0 +1,51 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.define "lb01" do |lb01|
+    lb01.vm.box = "ubuntu/trusty64"
+    lb01.vm.hostname = "loadbalancer"
+    lb01.vm.network :private_network, ip: "10.11.12.50"
+	lb01.vm.network "public_network"
+	lb01.vm.synced_folder "C:\\Users\\mdwas\\Desktop\\Visualpath\\Vagrant\\HAProxy\\loadbalancer", "/tmp/"
+	lb01.vm.provider "virtualbox" do |vb|
+     vb.memory = "1024"
+	 vb.cpus = 2
+	end
+	lb01.vm.provision "shell", inline: <<-SHELL
+     /tmp/lb_bootstrap.sh
+	SHELL
+  end
+
+  config.vm.define "web01" do |web01|
+    web01.vm.box = "ubuntu/trusty64"
+    web01.vm.hostname = "web01"
+    web01.vm.network :private_network, ip: "10.11.12.51"
+	web01.vm.network "public_network"
+	web01.vm.synced_folder "C:\\Users\\mdwas\\Desktop\\Visualpath\\Vagrant\\HAProxy\\web01", "/tmp/"
+	web01.vm.provider "virtualbox" do |vb|
+     vb.memory = "1600"
+	 vb.cpus = 2
+	end
+	web01.vm.provision "shell", inline: <<-SHELL
+     /tmp/web01_bootstrap.sh
+	SHELL
+  end
+
+  config.vm.define "web02" do |web02|
+    web02.vm.box = "ubuntu/trusty64"
+    web02.vm.hostname = "web02"
+    web02.vm.network :private_network, ip: "10.11.12.52"
+	web02.vm.network "public_network"
+	web02.vm.synced_folder "C:\\Users\\mdwas\\Desktop\\Visualpath\\Vagrant\\HAProxy\\web02", "/tmp"
+	web02.vm.provider "virtualbox" do |vb|
+     vb.memory = "1600"
+	 vb.cpus = 2
+	end
+	web02.vm.provision "shell", inline: <<-SHELL
+     /tmp/web02_bootstrap.sh
+	SHELL
+  end
+end
