@@ -1,0 +1,1 @@
+{"virtualbox":{"/tmp/":{"guestpath":"/tmp","hostpath":"C:/Users/mdwas/Desktop/Visualpath/Vagrant/HAProxy/web01","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"C:/Users/mdwas/Desktop/Visualpath/Vagrant/HAProxy","disabled":false,"__vagrantfile":true}}}
