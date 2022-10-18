@@ -6,7 +6,7 @@ sudo su
 cp /etc/hosts /etc/hosts_backup.bkp
 
 #copy hosts file from sync directory to /etc/ directory
-cp hosts /etc/hosts
+cp /tmp/hosts /etc/hosts
 
 #update and install HAProxy load balancer
 apt-get update -y
