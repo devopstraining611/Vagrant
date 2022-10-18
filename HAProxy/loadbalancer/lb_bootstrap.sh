@@ -13,11 +13,11 @@ apt-get update -y
 apt-get install haproxy -y
 
 #start and enable HAProxy
-systemctl start haproxy
-systemctl enable haproxy
+service haproxy start
+service haproxy enable
 
 #copy haproxy.cfg file from sync directory to /etc/haproxy/ directory
 cp /tmp/haproxy.cfg /etc/haproxy/haproxy.cfg
 
 #restart HAProxy
-systemctl reload haproxy
+service haproxy restart
